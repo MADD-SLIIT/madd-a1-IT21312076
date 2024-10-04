@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#4CAF50</color> <!-- Green -->
+    <color name="colorPrimaryDark">#388E3C</color> <!-- Darker Green -->
+    <color name="colorAccent">#FF4081</color> <!-- Pink -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="darkGray">#BDBDBD</color>
+
+
+        <color name="hint_color">#B0B0B0</color> <!-- Light gray for hint text -->
+        <!-- Add other colors as needed -->
+
+
 </resources>
