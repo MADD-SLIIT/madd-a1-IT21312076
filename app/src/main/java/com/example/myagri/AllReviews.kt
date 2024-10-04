@@ -1,5 +1,6 @@
 package com.example.myagri
 
+import Review
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -36,6 +37,7 @@ class AllReviews : AppCompatActivity() {
             reviewList.add(Review(name, comment, rating))
         }
 
+
         // Update the RecyclerView and handle empty reviews scenario
         if (reviewList.isEmpty()) {
             findViewById<TextView>(R.id.noReviewsTextView).visibility = View.VISIBLE
@@ -53,5 +55,6 @@ class AllReviews : AppCompatActivity() {
             val intent = Intent(this, Buymachinery::class.java)
             startActivity(intent)
         }
+
     }
 }
