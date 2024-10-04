@@ -14,20 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAgri"
         tools:targetApi="31">
-
         <activity
-            android:name=".Task"
+            android:name=".AllReviews"
+            android:exported="false" />
+        <activity
+            android:name=".StaticBuyPage"
+            android:exported="false" />
+        <activity
+            android:name=".Buymachinery"
             android:exported="true"> <!-- Set exported to true for onboarding activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="false" /> <!-- Keep exported as false for security -->
-
         <activity
             android:name=".Review"
             android:exported="false" />
@@ -35,7 +39,7 @@
             android:name=".Comment"
             android:exported="false" />
         <activity
-            android:name=".Feedback"
+            android:name=".Task"
             android:exported="false" />
         <activity
             android:name=".Onboard"
