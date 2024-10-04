@@ -1,20 +1,20 @@
 package com.example.myagri
 
 import Review
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 
 class AllReviews : AppCompatActivity() {
 
     private lateinit var reviewRecyclerView: RecyclerView
     private lateinit var reviewAdapter: ReviewAdapter
     private val reviewList = mutableListOf<Review>()
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,38 +23,43 @@ class AllReviews : AppCompatActivity() {
         reviewRecyclerView = findViewById(R.id.reviewRecyclerView)
         reviewRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Initialize Firebase Firestore
+        firestore = FirebaseFirestore.getInstance()
+
         // Initialize the adapter
         reviewAdapter = ReviewAdapter(reviewList)
         reviewRecyclerView.adapter = reviewAdapter
 
-        // Get the passed data
-        val name = intent.getStringExtra("name")
-        val comment = intent.getStringExtra("comment")
-        val rating = intent.getFloatExtra("rating", 0f)
+        // Fetch reviews from Firestore
+        fetchReviews()
+    }
 
-        // Add the new review to the list if data is not null
-        if (!name.isNullOrEmpty() && !comment.isNullOrEmpty()) {
-            reviewList.add(Review(name, comment, rating))
-        }
+    private fun fetchReviews() {
+        firestore.collection("reviews").get()
+            .addOnSuccessListener { documents ->
+                reviewList.clear() // Clear the list before adding new data
+                for (document in documents) {
+                    val name = document.getString("name")
+                    val comment = document.getString("comment")
+                    val rating = document.getDouble("rating")?.toFloat() ?: 0f
 
+                    // Add each review to the list
+                    reviewList.add(Review(name ?: "Unknown", comment ?: "No comment", rating))
+                }
 
-        // Update the RecyclerView and handle empty reviews scenario
-        if (reviewList.isEmpty()) {
-            findViewById<TextView>(R.id.noReviewsTextView).visibility = View.VISIBLE
-            reviewRecyclerView.visibility = View.GONE // Hide RecyclerView
-        } else {
-            findViewById<TextView>(R.id.noReviewsTextView).visibility = View.GONE
-            reviewRecyclerView.visibility = View.VISIBLE // Show RecyclerView
-            reviewAdapter.notifyDataSetChanged() // Notify adapter to refresh
-        }
-
-        // Find the back button and set click listener
-        val backButton: Button = findViewById(R.id.rebtn1)
-        backButton.setOnClickListener {
-            // Navigate back to BuyMachinery activity
-            val intent = Intent(this, Buymachinery::class.java)
-            startActivity(intent)
-        }
-
+                // Update RecyclerView or handle empty reviews
+                if (reviewList.isEmpty()) {
+                    findViewById<TextView>(R.id.noReviewsTextView).visibility = View.VISIBLE
+                    reviewRecyclerView.visibility = View.GONE // Hide RecyclerView
+                } else {
+                    findViewById<TextView>(R.id.noReviewsTextView).visibility = View.GONE
+                    reviewRecyclerView.visibility = View.VISIBLE // Show RecyclerView
+                    reviewAdapter.notifyDataSetChanged()
+                }
+            }
+            .addOnFailureListener { e ->
+                // Handle failure to fetch data
+                e.printStackTrace()
+            }
     }
 }
