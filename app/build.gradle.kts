@@ -55,5 +55,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.6.0") // Optional, for Google Sign-In
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("com.google.firebase:firebase-firestore-ktx:24.4.2")
+    implementation ("com.google.firebase:firebase-bom:31.2.3")
 
 }
