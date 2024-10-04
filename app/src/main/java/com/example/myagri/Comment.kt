@@ -19,10 +19,10 @@ class Comment : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment)
 
-        nameEditText = findViewById(R.id.ComeName)
-        commentEditText = findViewById(R.id.comcom)
-        ratingBar = findViewById(R.id.ratingBar)
-        addCommentButton = findViewById(R.id.combtn)
+        nameEditText = findViewById(R.id.ComeName) // Ensure this ID is correct
+        commentEditText = findViewById(R.id.comcom) // Ensure this ID is correct
+        ratingBar = findViewById(R.id.ratingBar) // Ensure this ID is correct
+        addCommentButton = findViewById(R.id.combtn) // Ensure this ID is correct
 
         addCommentButton.setOnClickListener {
             val name = nameEditText.text.toString()
@@ -30,7 +30,6 @@ class Comment : AppCompatActivity() {
             val rating = ratingBar.rating
 
             if (name.isNotEmpty() && comment.isNotEmpty()) {
-                // Save the comment and rating (you can save this in a database like Firestore or pass it via intent)
                 val intent = Intent(this, AllReviews::class.java)
                 intent.putExtra("name", name)
                 intent.putExtra("comment", comment)
