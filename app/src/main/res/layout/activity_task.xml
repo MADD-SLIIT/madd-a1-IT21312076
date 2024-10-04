@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background">
@@ -26,75 +25,72 @@
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="382dp"
-        android:layout_height="298dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="335dp"
+        android:layout_height="254dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tasktxt" />
+        app:layout_constraintTop_toBottomOf="@+id/tasktxt" />
 
     <EditText
         android:id="@+id/taskEditText"
         android:layout_width="342dp"
         android:layout_height="81dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="27dp"
         android:background="@drawable/edittext_background"
         android:hint="Enter your task here"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="2sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calendarView" />
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     <Button
         android:id="@+id/addTaskButton"
-        android:layout_width="250dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="143dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="22dp"
         android:backgroundTint="#4CAF50"
         android:text="Add Task"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/taskEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/taskEditText" />
 
     <Button
         android:id="@+id/updateTaskButton"
-        android:layout_width="263dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="139dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="42dp"
         android:backgroundTint="#2196F3"
         android:text="Update Task"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addTaskButton" />
+        app:layout_constraintTop_toBottomOf="@+id/taskRecyclerView" />
 
     <Button
         android:id="@+id/deleteTaskButton"
-        android:layout_width="252dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="141dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="34dp"
         android:backgroundTint="#F44336"
         android:text="Delete Task"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/updateTaskButton" />
+        app:layout_constraintTop_toBottomOf="@+id/taskRecyclerView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/taskRecyclerView"
-        android:layout_width="390dp"
-        android:layout_height="126dp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="330dp"
+        android:layout_height="173dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:padding="1sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deleteTaskButton" />
+        app:layout_constraintTop_toBottomOf="@+id/addTaskButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
