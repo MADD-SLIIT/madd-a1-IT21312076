@@ -278,7 +278,7 @@
             android:layout_height="42dp"
             android:layout_marginLeft="245dp"
             android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/service" />
+            app:srcCompat="@drawable/service"/>
 
         <ImageView
             android:id="@+id/imageView10"
