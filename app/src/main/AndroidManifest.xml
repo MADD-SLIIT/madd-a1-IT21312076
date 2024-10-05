@@ -21,7 +21,7 @@
             android:name=".StaticBuyPage"
             android:exported="false" />
         <activity
-            android:name=".Buymachinery"
+            android:name=".Onboard"
             android:exported="true"> <!-- Set exported to true for onboarding activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,13 +42,16 @@
             android:name=".Task"
             android:exported="false" />
         <activity
-            android:name=".Onboard"
+            android:name=".Buymachinery"
             android:exported="false" />
         <activity
             android:name=".Profile"
             android:exported="false" />
         <activity
             android:name=".SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
             android:exported="false" />
     </application>
 

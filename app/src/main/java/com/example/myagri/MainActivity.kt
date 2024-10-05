@@ -1,7 +1,8 @@
 package com.example.myagri
 
-import android.content.Intent // Add this import
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -68,12 +69,17 @@ class MainActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Login success, show a success message
+                    // Login success
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
-                    // If login fails, show error message
+                    // Log error message
+                    Log.e("LoginError", "Login failed: ${task.exception?.message}")
                     Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
 }

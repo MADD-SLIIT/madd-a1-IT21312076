@@ -1,5 +1,6 @@
 package com.example.myagri
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -49,7 +50,6 @@ class Comment : AppCompatActivity() {
 
                         // Navigate to AllReviews activity after saving the review
                         val intent = Intent(this, AllReviews::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clear back stack
                         startActivity(intent)
                     }
                     .addOnFailureListener { e ->

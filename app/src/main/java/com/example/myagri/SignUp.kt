@@ -1,5 +1,6 @@
 package com.example.myagri
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
@@ -60,7 +61,11 @@ class SignUp : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign-up success
                     Toast.makeText(this, "Sign Up successful", Toast.LENGTH_SHORT).show()
-                    // Navigate to the main activity or another screen
+
+                    // Navigate to the login activity
+                    val intent = Intent(this, MainActivity::class.java)  // Assuming your login activity is called 'Login'
+                    startActivity(intent)
+                    finish()  // Close the SignUp activity so it doesn't stay in the back stack
                 } else {
                     // If sign up fails, display a message to the user.
                     Toast.makeText(this, "Sign Up failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()

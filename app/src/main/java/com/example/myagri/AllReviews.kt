@@ -1,12 +1,15 @@
 package com.example.myagri
 
-import Review
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myagri.Buymachinery
+import com.example.myagri.R
+import com.example.myagri.ReviewAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 
 class AllReviews : AppCompatActivity() {
@@ -62,4 +65,23 @@ class AllReviews : AppCompatActivity() {
                 e.printStackTrace()
             }
     }
+
+    override fun onBackPressed() {
+        // Create an Intent to navigate back to Buymachinery
+        val intent = Intent(this, Buymachinery::class.java)
+
+        // Add flags to avoid creating a new instance of Buymachinery if it's already in the back stack
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+
+        // Start the activity
+        startActivity(intent)
+
+        // Optionally, call super.onBackPressed() to ensure the system handles back press behavior as well
+        super.onBackPressed()
+
+        // Finish the current activity to remove it from the stack
+        finish()
+    }
+
+
 }

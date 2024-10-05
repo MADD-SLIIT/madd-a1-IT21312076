@@ -6,177 +6,287 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#4CAF50"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <!-- Profile Section -->
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/profile"
-        android:layout_marginTop="16dp"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"/>
-
-    <TextView
-        android:id="@+id/good_morning_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Good Morning!"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@id/profile_image"
-        app:layout_constraintTop_toTopOf="@id/profile_image"
-        android:layout_marginStart="8dp"/>
-
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alex"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="@id/good_morning_text"
-        app:layout_constraintTop_toBottomOf="@id/good_morning_text"/>
 
     <!-- Weather Section -->
-    <RelativeLayout
-        android:id="@+id/weather_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/profile_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/weather_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="19°"
-            android:textSize="40sp"
-            android:textColor="@android:color/white"
-            android:layout_alignParentStart="true"/>
-
-        <TextView
-            android:id="@+id/weather_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ragala, Nuwara Eliya"
-            android:textSize="16sp"
-            android:textColor="@android:color/white"
-            android:layout_below="@id/weather_temp"
-            android:layout_alignParentStart="true"/>
-
-        <TextView
-            android:id="@+id/weather_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mid Rain"
-            android:textColor="@android:color/white"
-            android:layout_below="@id/weather_location"
-            android:layout_alignParentStart="true"/>
-
-        <ImageView
-            android:id="@+id/weather_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/weather"/>
-    </RelativeLayout>
 
     <!-- Market View Horizontal Scroll -->
-    <HorizontalScrollView
-        android:id="@+id/market_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/weather_section"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
-
-            <!-- Market Item -->
-            <LinearLayout
-                android:layout_width="402dp"
-                android:layout_height="119dp"
-                android:background="@drawable/green"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/onion" />
-
-                <TextView
-                    android:gravity="center"
-                    android:text="Onion"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:gravity="center"
-                    android:text="Rs. 50/kg"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <!-- Repeat similar blocks for other items like Carrots, etc. -->
-        </LinearLayout>
-    </HorizontalScrollView>
 
     <!-- Agri Services Horizontal Scroll -->
-    <HorizontalScrollView
-        android:id="@+id/agri_services"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/market_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:scrollbars="none">
 
-    </HorizontalScrollView>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="510dp">
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/buy_medicine"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/medicine"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="345dp" />
+        android:layout_marginTop="52dp"
+        android:text="Good Morning!"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/agri_counsel"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/counsel"
-        tools:layout_editor_absoluteX="313dp"
-        tools:layout_editor_absoluteY="337dp" />
+        android:id="@+id/imageView3"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.845"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bell" />
 
-    <ImageView
-        android:id="@+id/buy_machinery"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/machinery"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="340dp" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="350dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="96dp"
+        android:backgroundTint="#358E39"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="12dp"
+            app:srcCompat="@drawable/weather" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="19"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="64dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="97dp"
+            android:layout_marginTop="27dp"
+            android:text="o"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="120dp"
+            android:text="H:24"
+            android:textColor="#EBEBF5"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="120dp"
+            android:text="L:18"
+            android:textColor="#EBEBF5"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="160dp"
+            android:text="Ragala, NuwaraEliya"
+            android:textColor="#FFFFFF"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="350dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#80358E39"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:text="Cut the Grass"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="45dp"
+            android:text="Cut the all grass in this week"
+            android:textColor="#BFFFFFFF" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:text="See all"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Task"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Agri Service"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="150dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="243dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="146dp"
+            android:layout_height="114dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/machinery" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="150dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="31dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView18">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/medicine" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:text="Buy Machinery"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="52dp"
+        android:text="Buy Medicine"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="409dp"
+        android:layout_height="59dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/home_clicked" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="150dp"
+            app:srcCompat="@drawable/task" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="245dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/service" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="340dp"
+            app:srcCompat="@drawable/person" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
