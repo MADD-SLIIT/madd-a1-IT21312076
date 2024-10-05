@@ -3,13 +3,11 @@ package com.example.myagri
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myagri.Buymachinery
-import com.example.myagri.R
-import com.example.myagri.ReviewAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 
 class AllReviews : AppCompatActivity() {
@@ -22,6 +20,12 @@ class AllReviews : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_reviews)
+
+        // Find the back button
+        val backButton = findViewById<Button>(R.id.rebtn1)
+        backButton.setOnClickListener {
+            navigateToBuyMachinery()
+        }
 
         reviewRecyclerView = findViewById(R.id.reviewRecyclerView)
         reviewRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -66,7 +70,7 @@ class AllReviews : AppCompatActivity() {
             }
     }
 
-    override fun onBackPressed() {
+    private fun navigateToBuyMachinery() {
         // Create an Intent to navigate back to Buymachinery
         val intent = Intent(this, Buymachinery::class.java)
 
@@ -76,12 +80,7 @@ class AllReviews : AppCompatActivity() {
         // Start the activity
         startActivity(intent)
 
-        // Optionally, call super.onBackPressed() to ensure the system handles back press behavior as well
-        super.onBackPressed()
-
-        // Finish the current activity to remove it from the stack
+        // Finish this activity to remove it from the back stack
         finish()
     }
-
-
 }
