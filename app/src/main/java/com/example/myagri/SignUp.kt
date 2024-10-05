@@ -8,11 +8,14 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUp : AppCompatActivity() {
 
     // Firebase Auth instance
     private lateinit var auth: FirebaseAuth
+    // Firebase Firestore reference
+    private val firestore = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,13 +65,36 @@ class SignUp : AppCompatActivity() {
                     // Sign-up success
                     Toast.makeText(this, "Sign Up successful", Toast.LENGTH_SHORT).show()
 
+                    // Save user details to Firestore
+                    saveProfileDetails(email)
+
                     // Navigate to the login activity
-                    val intent = Intent(this, MainActivity::class.java)  // Assuming your login activity is called 'Login'
+                    val intent = Intent(this, MainActivity::class.java)  // Assuming your login activity is called 'MainActivity'
                     startActivity(intent)
                     finish()  // Close the SignUp activity so it doesn't stay in the back stack
                 } else {
                     // If sign up fails, display a message to the user.
                     Toast.makeText(this, "Sign Up failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+
+                    // Log the error for debugging
+                    task.exception?.printStackTrace()  // This will log the full exception details to the console
+                }
+            }
+    }
+
+    private fun saveProfileDetails(email: String) {
+        // Create a user map to store in Firestore
+        val user = hashMapOf(
+            "email" to email
+        )
+
+        // Write data to Firestore
+        firestore.collection("users").document(email).set(user)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Failed to update profile: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }

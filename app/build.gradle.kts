@@ -56,5 +56,11 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("com.google.firebase:firebase-firestore-ktx:24.4.2")
     implementation ("com.google.firebase:firebase-bom:31.2.3")
+    implementation ("com.google.firebase:firebase-auth-ktx:21.0.6") // Make sure you have this in your dependencies
+    implementation ("com.google.firebase:firebase-database-ktx:20.0.5")
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.0.0")
+
+
+
 
 }
